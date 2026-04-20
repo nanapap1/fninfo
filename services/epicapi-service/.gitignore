@@ -2,9 +2,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-!.github/
-!docs/
-!services/
 .kotlin
 
 ### IntelliJ IDEA ###
