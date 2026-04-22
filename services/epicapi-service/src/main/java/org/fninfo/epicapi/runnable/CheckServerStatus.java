@@ -24,11 +24,6 @@ public class CheckServerStatus extends TemplateRunner implements Runnable{
     @Override
     public void run() {
         try {
-            System.out.println(this.restClient.get()
-                    .uri("https://lightswitch-public-service-prod.ol.epicgames.com/lightswitch/api/service/fortnite/status")
-                    .header("Authorization", String.format("Bearer %s",authenficator.getAccessToken()))
-                    .retrieve()
-                    .body(String.class));
             status.setUp(this.restClient.get()
                     .uri("https://lightswitch-public-service-prod.ol.epicgames.com/lightswitch/api/service/fortnite/status")
                     .header("Authorization", String.format("Bearer %s",authenficator.getAccessToken()))
