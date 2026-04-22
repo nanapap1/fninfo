@@ -2,6 +2,7 @@ package org.fninfo.epicapi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.client.JdkClientHttpRequestFactory;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -20,6 +21,8 @@ public class RestClientConfig {
                     con.add(new StringHttpMessageConverter());
                     con.add(new MappingJackson2HttpMessageConverter());
                 })
+                .defaultStatusHandler(HttpStatusCode::isError, (request, response) -> {
+                    System.out.println(response.getStatusCode());})
                 .build();
     }
 
