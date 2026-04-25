@@ -28,6 +28,7 @@ docker-compose*.yml
 .github/
 Jenkinsfile
 .gitlab-ci.yml
+logs/
 
 docs/
 README*.md

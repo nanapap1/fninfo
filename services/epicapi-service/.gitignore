@@ -42,3 +42,5 @@ build/
 .env
 .example
 epicapi.iml
+
+logs/

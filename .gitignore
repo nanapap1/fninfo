@@ -45,6 +45,7 @@ build/
 .env
 .example
 out/
+logs
 
 ### Docker ###
-rabbitmq/**
+rabbitmq
