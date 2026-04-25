@@ -13,7 +13,7 @@ import org.springframework.web.client.RestClient;
 
 public class UpdateClientToken extends TemplateRunner implements Runnable {
 
-    @Value("${client.id}")
+    @Value("${client}")
     private String clientId;
 
 

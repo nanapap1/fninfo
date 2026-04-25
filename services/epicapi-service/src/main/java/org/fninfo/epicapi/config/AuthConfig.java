@@ -1,5 +1,6 @@
 package org.fninfo.epicapi.config;
 
+import com.rabbitmq.client.impl.Environment;
 import org.fninfo.epicapi.dto.Authenficator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +16,9 @@ import org.springframework.web.client.RestClient;
 @Configuration
 @EnableScheduling
 public class AuthConfig {
-    @Value("${client.id}")
+    @Value("${client}")
     private String clientId;
+
 
     private final RestClient restClient;
 
@@ -24,6 +26,7 @@ public class AuthConfig {
     public AuthConfig(RestClient restClient) {
         this.restClient = restClient;
     }
+
 
     @Bean(name="clientAccess")
     public Authenficator clientAuthenticate() {

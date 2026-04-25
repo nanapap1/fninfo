@@ -47,4 +47,4 @@ build/
 out/
 
 ### Docker ###
-./rabbitmq-data/
+rabbitmq/**

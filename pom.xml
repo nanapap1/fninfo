@@ -28,7 +28,20 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>3.4.11</version>
+                <type>pom</type>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.fninfo</groupId>
+                <artifactId>common</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                <version>4.3.0</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
