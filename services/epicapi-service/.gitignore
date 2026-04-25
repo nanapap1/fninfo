@@ -2,9 +2,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-!.github/
-!docs/
-!services/
 .kotlin
 
 ### IntelliJ IDEA ###
@@ -44,8 +41,6 @@ build/
 .DS_Store/
 .env
 .example
-out/
-logs
+epicapi.iml
 
-### Docker ###
-rabbitmq
+logs/

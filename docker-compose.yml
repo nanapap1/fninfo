@@ -1,0 +1,11 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.2-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - ./.env
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq
+      - ./rabbitmq/logs:/var/log/rabbitmq
