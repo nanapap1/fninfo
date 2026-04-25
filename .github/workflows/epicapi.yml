@@ -5,7 +5,7 @@ on:
       - main
       - develop
     paths:
-      - /services/epicapi-service
+          - 'services/epicapi-service/**'
 
 jobs:
   Testing:
