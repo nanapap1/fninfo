@@ -22,7 +22,7 @@ public class AuthClientTest {
     private final Authenficator authenficator;
 
     @Autowired
-    public AuthClientTest(@Value("${client.id}") String id,RestClient restClient, @Qualifier("clientAccess") Authenficator authenficator) {
+    public AuthClientTest(@Value("${client}") String id,RestClient restClient, @Qualifier("clientAccess") Authenficator authenficator) {
         this.clientId = id;
         this.restClient = restClient;
         this.authenficator = authenficator;
