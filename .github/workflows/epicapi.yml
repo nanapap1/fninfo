@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
     defaults:
       run:
-        working-directory: /services/epicapi-service
+        working-directory: services/epicapi-service
     steps:
       - uses: actions/checkout@v4
 
@@ -23,6 +23,7 @@ jobs:
           java-package: 'jdk'
           java-version: '17'
           cache: 'maven'
+          cache-dependency-path: services/epicapi-service/pom.xml
 
       - name: Test Maven
         run: ./mvnw test
