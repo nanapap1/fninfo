@@ -34,8 +34,11 @@ public class InfoService {
     public boolean deleteInfo(InfoRequest infoRequest) {
         try{
             Info info = infoRepository.findByNameEventAndStatusOf(infoRequest.name(),infoRequest.status());
-            infoRepository.delete(info);
-            return true;
+            if (info != null) {
+                infoRepository.delete(info);
+                return true;
+            }
+            return false;
         }
         catch (Exception e) {
             return false;

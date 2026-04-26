@@ -33,6 +33,13 @@ public class Info {
         this.image = image;
     }
 
+    public Info(String nameEvent, boolean statusOf, String text, String image) {
+        this.nameEvent = nameEvent;
+        this.statusOf = statusOf;
+        this.text = text;
+        this.image = image;
+    }
+
     public Integer getId() {
         return id;
     }
