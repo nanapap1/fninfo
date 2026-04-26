@@ -30,4 +30,15 @@ public class InfoService {
             return false;
         }
     }
+
+    public boolean deleteInfo(InfoRequest infoRequest) {
+        try{
+            Info info = infoRepository.findByNameEventAndStatusOf(infoRequest.name(),infoRequest.status());
+            infoRepository.delete(info);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
 }

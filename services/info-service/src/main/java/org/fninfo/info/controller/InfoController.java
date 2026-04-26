@@ -7,6 +7,7 @@ import org.fninfo.info.entity.Info;
 import org.fninfo.info.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,12 @@ public class InfoController {
     public void addInfo(@RequestBody InfoRequest info) {
         if(!infoService.addInfo(info))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Illegal format");
+    }
+
+    @DeleteMapping("deleteInfo")
+    public void deleteInfo(@RequestBody InfoRequest info){
+        if(!infoService.deleteInfo(info))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Illegal format");
+
     }
 }
