@@ -19,9 +19,7 @@ public class MessageConfig {
 
     @Bean
     public Function<ChangeStatusEvent, TelegramEvent> receiveChangeStatus() {
-        return (ChangeStatusEvent event) -> {
-            return AnalyzeStatusService.analyze(event);
-        };
+        return analyzeStatusService::analyzeStatus;
     }
 
 }
