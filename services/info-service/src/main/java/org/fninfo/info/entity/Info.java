@@ -27,8 +27,8 @@ public class Info {
 
     public Info(Integer id, String name, boolean isPositive, String text, String image) {
         this.id = id;
-        this.name = name;
-        this.isPositive = isPositive;
+        this.nameEvent = name;
+        this.statusOf = isPositive;
         this.text = text;
         this.image = image;
     }
@@ -41,20 +41,20 @@ public class Info {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEvent() {
+        return nameEvent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
     }
 
-    public boolean isPositive() {
-        return isPositive;
+    public boolean isStatusOf() {
+        return statusOf;
     }
 
-    public void setPositive(boolean positive) {
-        isPositive = positive;
+    public void setStatusOf(boolean statusOf) {
+        this.statusOf = statusOf;
     }
 
     public String getText() {
