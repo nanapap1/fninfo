@@ -22,8 +22,12 @@ jobs:
           cache: 'maven'
           cache-dependency-path: services/epicapi-service/pom.xml
 
-      - name: Install dependecies
-        run: mvn clean install -DskipTests -pl tg-bom,common -am
+      - name: Install tg-bom
+        run: mvn clean install
+
+      - name: Install common
+        working-directory: common
+        run: mvn clean install
 
       - name: Test Maven
         working-directory: services/epicapi-service
