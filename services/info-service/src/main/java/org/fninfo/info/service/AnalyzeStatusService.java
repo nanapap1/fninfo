@@ -20,7 +20,7 @@ public class AnalyzeStatusService {
 
     public TelegramEvent analyzeStatus(ChangeStatusEvent event) {
         try {
-            Info info = infoRepository.findByNameEventAndStatusOf(event.getClass().getName(), event.isOnline());
+            Info info = infoRepository.findByNameEventAndStatusOf(event.getClass().getSimpleName(), event.isOnline());
             return new TelegramEvent(info.getText(), info.getImage());
         }
         catch (Exception e) {

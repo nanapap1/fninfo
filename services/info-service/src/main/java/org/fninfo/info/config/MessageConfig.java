@@ -6,7 +6,6 @@ import org.fninfo.info.service.AnalyzeStatusService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 @Configuration
