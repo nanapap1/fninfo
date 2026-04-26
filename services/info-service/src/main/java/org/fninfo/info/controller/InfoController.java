@@ -2,6 +2,7 @@ package org.fninfo.info.controller;
 
 
 import org.apache.http.HttpException;
+import org.fninfo.info.dto.InfoRequest;
 import org.fninfo.info.entity.Info;
 import org.fninfo.info.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class InfoController {
     }
 
     @PostMapping("addInfo")
-    public void addInfo(@RequestBody Info info) {
+    public void addInfo(@RequestBody InfoRequest info) {
         if(!infoService.addInfo(info))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Illegal format");
     }

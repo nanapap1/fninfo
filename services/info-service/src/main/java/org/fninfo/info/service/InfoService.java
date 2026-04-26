@@ -1,5 +1,6 @@
 package org.fninfo.info.service;
 
+import org.fninfo.info.dto.InfoRequest;
 import org.fninfo.info.entity.Info;
 import org.fninfo.info.repo.InfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,19 @@ public class InfoService {
         this.infoRepository = infoRepository;
     }
 
-    public boolean addInfo(Info info){
-        try{
-            infoRepository.save(info);
-            return true;
+    public boolean addInfo(InfoRequest infoRequest){
+        try {
+        Info info = new Info();
+        info.setImage(infoRequest.image());
+        info.setText(infoRequest.text());
+        info.setNameEvent(infoRequest.name());
+        if(infoRequest.status())
+            info.setStatusOf(true);
+        infoRepository.save(info);
+        return true;
         }
         catch (Exception e) {
             return false;
         }
-
     }
 }

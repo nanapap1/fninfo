@@ -13,8 +13,8 @@ public class Info {
     @Column(name="nameEvent")
     private String nameEvent;
 
-    @Column(name = "statusOf", nullable = true)
-    private boolean statusOf;
+    @Column(name = "statusOf")
+    private boolean statusOf = false;
 
     @Column
     private String text;

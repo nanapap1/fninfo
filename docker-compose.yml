@@ -12,7 +12,7 @@ services:
   postgresql_info:
     image: postgres:18-alpine
     ports:
-      - "5432:5432"
+      - "5434:5432"
     env_file:
       - ./.env
     volumes:
