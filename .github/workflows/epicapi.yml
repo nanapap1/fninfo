@@ -10,9 +10,6 @@ on:
 jobs:
   Testing:
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: services/epicapi-service
     steps:
       - uses: actions/checkout@v4
 
@@ -25,5 +22,9 @@ jobs:
           cache: 'maven'
           cache-dependency-path: services/epicapi-service/pom.xml
 
+      - name: Install dependecies
+        run: mvn clean install -DskipTests -pl tg-bom,common -am
+
       - name: Test Maven
-        run: ./mvnw test
+        working-directory: services/epicapi-service
+        run: mvn clean test
