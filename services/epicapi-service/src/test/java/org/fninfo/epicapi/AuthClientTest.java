@@ -1,7 +1,7 @@
 package org.fninfo.epicapi;
 
 import org.fninfo.epicapi.dto.Authenficator;
-import org.fninfo.epicapi.exceptions.AuthException;
+import org.fninfo.epicapi.exception.AuthException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +22,7 @@ public class AuthClientTest {
     private final Authenficator authenficator;
 
     @Autowired
-    public AuthClientTest(@Value("${client.id}") String id,RestClient restClient, @Qualifier("clientAccess") Authenficator authenficator) {
+    public AuthClientTest(@Value("${client}") String id,RestClient restClient, @Qualifier("clientAccess") Authenficator authenficator) {
         this.clientId = id;
         this.restClient = restClient;
         this.authenficator = authenficator;

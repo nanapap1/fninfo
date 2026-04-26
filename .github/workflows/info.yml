@@ -1,11 +1,11 @@
-name: epicapi.yml
+name: info.yml
 on:
   pull_request:
     branches:
       - main
       - develop
     paths:
-          - 'services/epicapi-service/**'
+      - 'services/info-service/**'
 
 jobs:
   Testing:
@@ -20,7 +20,7 @@ jobs:
           java-package: 'jdk'
           java-version: '17'
           cache: 'maven'
-          cache-dependency-path: services/epicapi-service/pom.xml
+          cache-dependency-path: services/info-service/pom.xml
 
       - name: Install tg-bom
         run: mvn clean install
@@ -30,5 +30,6 @@ jobs:
         run: mvn clean install
 
       - name: Test Maven
-        working-directory: services/epicapi-service
+        working-directory: services/info-service
         run: mvn clean test
+
