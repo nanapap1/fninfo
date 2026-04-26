@@ -48,4 +48,5 @@ out/
 logs
 
 ### Docker ###
-rabbitmq
+rabbitmq/
+postgresql/

@@ -1,7 +1,7 @@
 package org.fninfo.epicapi;
 
 import org.fninfo.epicapi.dto.Authenficator;
-import org.fninfo.epicapi.exceptions.AuthException;
+import org.fninfo.epicapi.exception.AuthException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

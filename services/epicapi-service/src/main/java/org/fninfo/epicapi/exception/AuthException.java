@@ -1,4 +1,4 @@
-package org.fninfo.epicapi.exceptions;
+package org.fninfo.epicapi.exception;
 
 public class AuthException extends RuntimeException {
     public AuthException(String message) {

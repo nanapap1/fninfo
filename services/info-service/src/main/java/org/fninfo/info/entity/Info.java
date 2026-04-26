@@ -5,16 +5,16 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "storage")
-public class Storage {
+public class Info {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="event_name")
-    private String name;
+    @Column(name="nameEvent")
+    private String nameEvent;
 
-    @Column(name = "status", nullable = true)
-    private boolean isPositive;
+    @Column(name = "statusOf", nullable = true)
+    private boolean statusOf;
 
     @Column
     private String text;
@@ -22,10 +22,10 @@ public class Storage {
     @Column
     private String image;
 
-    public Storage() {
+    public Info() {
     }
 
-    public Storage(Integer id, String name, boolean isPositive, String text, String image) {
+    public Info(Integer id, String name, boolean isPositive, String text, String image) {
         this.id = id;
         this.name = name;
         this.isPositive = isPositive;
