@@ -1,0 +1,29 @@
+name: info.yml
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'services/info-service/**'
+
+jobs:
+  Testing:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: /services/info-service
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v5.1.0
+        with:
+          distribution: 'temurin'
+          java-package: 'jdk'
+          java-version: '17'
+          cache: 'maven'
+
+      - name: Test Maven
+        run: ./mvnw test
+
