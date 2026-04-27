@@ -25,7 +25,25 @@ public class TGRepository {
         }
     }
 
+    public boolean addPhoto(String id, String element) {
+        try {
+            stringRedisTemplate.opsForValue().set("tg:photo:" + id.toLowerCase(), element);
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
+
     public Set<String> getIDs(String key) {
         return stringRedisTemplate.opsForSet().members("tg:" + key.toLowerCase());
     }
-}
+
+    public String getID(String key) {
+        return stringRedisTemplate.opsForValue().get("tg:" + key.toLowerCase());
+    }
+
+    public String getPhoto(String key) {
+        return stringRedisTemplate.opsForValue().get("tg:" + key.toLowerCase());
+    }
+ }
