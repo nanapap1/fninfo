@@ -2,11 +2,13 @@ package org.fninfo.tg.service;
 
 import org.fninfo.tg.repo.TGRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+@Service
 public class ImageService {
     private final TGRepository tgRepository;
     private final MessageService messageService;

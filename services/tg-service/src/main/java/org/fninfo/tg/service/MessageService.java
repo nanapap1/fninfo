@@ -7,6 +7,7 @@ import org.fninfo.tg.dto.Answer;
 import org.fninfo.tg.exception.MessageNotSendException;
 import org.fninfo.tg.model.Game;
 import org.fninfo.tg.repo.TGRepository;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpEntity;
@@ -38,7 +39,7 @@ public class MessageService {
         for(String one : id) {
            if (event.image() != null) {
                         try {
-                            Map<String, String> data = Map.of("chat_id", one,  "photo", event.image(), "caption", event.text());
+                            Map<String, String> data = Map.of("chat_id", one,  "photo", tgRepository.getPhoto("photo:"+event.image()), "caption", event.text());
                             this.sendTextAndImageMessage(data, token);
                         } catch (Exception e) {
                             log.warn("Failed to send to {}: {}", one, e.getMessage());
@@ -77,11 +78,15 @@ public class MessageService {
             throw new MessageNotSendException("Impossible to send a message");
     }
 
-    public String sendPhotoAsHeader(InputStream file, String filename, String id, String token) {
+    public String sendPhotoAsHeader(InputStream stream, String filename, String id, String token) {
         try {
+            byte[] imageBytes = stream.readAllBytes();
             MultipartBodyBuilder builder = new MultipartBodyBuilder();
             builder.part("chat_id", id);
-            builder.part("photo", new InputStreamResource(file, filename));
+            builder.part("photo",  new ByteArrayResource(imageBytes) {
+                @Override
+                public String getFilename() { return filename; }
+            });
             MultiValueMap<String, HttpEntity<?>> parts = builder.build();
             Answer ans = restClient.post()
                     .uri("/bot{token}/sendPhoto", token)
