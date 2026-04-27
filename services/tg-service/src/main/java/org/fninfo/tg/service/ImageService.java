@@ -21,7 +21,7 @@ public class ImageService {
     public boolean addImage(String name) {
         InputStream stream = getClass().getClassLoader().getResourceAsStream("images/"+ name+ ".png");
         String get = messageService.sendPhotoAsHeader(stream,name + ".png",tgRepository.getID("test:send"),infoToken);
-        return tgRepository.addPhoto(name,get);
+        return tgRepository.addElement("photo:" + name,get);
     }
 
 }

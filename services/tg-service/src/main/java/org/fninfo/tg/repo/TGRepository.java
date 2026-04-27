@@ -15,7 +15,7 @@ public class TGRepository {
         this.stringRedisTemplate = stringRedisTemplate;
     }
 
-    public boolean addElement(String id, String element) {
+    public boolean addElementSet(String id, String element) {
         try {
             Long res = stringRedisTemplate.opsForSet().add("tg:" + id.toLowerCase(), element);
             return (res != null) && res > 0;
@@ -25,9 +25,19 @@ public class TGRepository {
         }
     }
 
-    public boolean addPhoto(String id, String element) {
+    public boolean deleteElementSet(String id, String element) {
         try {
-            stringRedisTemplate.opsForValue().set("tg:photo:" + id.toLowerCase(), element);
+            Long res = stringRedisTemplate.opsForSet().remove("tg:" + id.toLowerCase(), element);
+            return (res != null) && res > 0;
+        }
+        catch (Exception e) {
+            throw new RedisException(e.getMessage());
+        }
+    }
+
+    public boolean addElement(String id, String element) {
+        try {
+            stringRedisTemplate.opsForValue().set("tg:" + id.toLowerCase(), element);
             return true;
         }
         catch (Exception e) {

@@ -22,13 +22,13 @@ public class InfoController {
         this.infoService = infoService;
     }
 
-    @PostMapping("addInfo")
+    @PostMapping("info/add")
     public void addInfo(@RequestBody InfoRequest info) {
         if(!infoService.addInfo(info))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Illegal format");
     }
 
-    @DeleteMapping("deleteInfo")
+    @DeleteMapping("info/delete")
     public void deleteInfo(@RequestBody InfoRequest info){
         if(!infoService.deleteInfo(info))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Illegal format");
