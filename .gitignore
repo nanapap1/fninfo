@@ -50,3 +50,4 @@ logs
 ### Docker ###
 rabbitmq/
 postgresql/
+redis/
