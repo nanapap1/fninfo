@@ -1,6 +1,7 @@
 package org.fninfo.tg;
 import org.fninfo.tg.dto.SubRequest;
 import org.fninfo.tg.repo.TGRepository;
+import org.fninfo.tg.service.ChatIdService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
