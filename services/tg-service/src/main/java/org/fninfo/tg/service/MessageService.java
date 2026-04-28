@@ -35,7 +35,7 @@ public class MessageService {
     }
 
     public void sendMessage(TelegramEvent event, Game game,String token) {
-        Set<String> id = tgRepository.getIDs(game.name());
+        Set<String> id = tgRepository.getIDs("send:"+ game.name());
         for(String one : id) {
            if (event.image() != null) {
                         try {
