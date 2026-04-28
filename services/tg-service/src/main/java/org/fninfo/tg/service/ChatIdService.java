@@ -1,7 +1,6 @@
 package org.fninfo.tg.service;
 
 import org.fninfo.tg.dto.SubRequest;
-import org.fninfo.tg.model.Game;
 import org.fninfo.tg.repo.TGRepository;
 import org.springframework.stereotype.Service;
 

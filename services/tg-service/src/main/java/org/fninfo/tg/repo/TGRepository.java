@@ -1,7 +1,6 @@
 package org.fninfo.tg.repo;
 
 import org.fninfo.tg.exception.RedisException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
 
