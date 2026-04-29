@@ -1,0 +1,34 @@
+name: epicapi.yml
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+          - 'services/epicapi-service/**'
+
+jobs:
+  Testing:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v5.1.0
+        with:
+          distribution: 'temurin'
+          java-package: 'jdk'
+          java-version: '17'
+          cache: 'maven'
+          cache-dependency-path: services/epicapi-service/pom.xml
+
+      - name: Install tg-bom
+        run: mvn clean install
+
+      - name: Install common
+        working-directory: common
+        run: mvn clean install
+
+      - name: Test Maven
+        working-directory: services/epicapi-service
+        run: mvn clean test

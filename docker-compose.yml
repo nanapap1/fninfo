@@ -1,0 +1,32 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.2-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - ./.env
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq
+
+  postgresql_info:
+    image: postgres:18-alpine
+    ports:
+      - "5434:5432"
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB_INFO}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD_INFO}
+    volumes:
+      - ./postgresql/info:/var/lib/postgresql
+
+  redis_tg:
+    image: redis:8.6.2-alpine
+    ports:
+      - "6379:6379"
+    command: ["redis-server","--requirepass","${REDIS_HOST_PASSWORD_TG}"]
+    env_file:
+      - ./.env
+    volumes:
+      - ./redis/tg:/data
