@@ -32,21 +32,21 @@ services:
       - ./redis/tg:/data
 
   epic_api:
-    image: ghcr.io/nanapap1/epicapi-service:sha-3710e932bbd013125fd6207f249cbf583cad14d1
+    image: ghcr.io/nanapap1/epicapi-service:sha-1baa1d11c687ad917b7f73dddf9fc0eccbfef283
     ports:
       - "8086:8086"
     env_file:
       - ./.env
 
   info:
-    image: ghcr.io/nanapap1/info-service:sha-3710e932bbd013125fd6207f249cbf583cad14d1
+    image: ghcr.io/nanapap1/info-service:sha-1baa1d11c687ad917b7f73dddf9fc0eccbfef283
     ports:
       - "8087:8087"
     env_file:
       - ./.env
 
   tg:
-    image: ghcr.io/nanapap1/tg-service:sha-3710e932bbd013125fd6207f249cbf583cad14d1
+    image: ghcr.io/nanapap1/tg-service:sha-1baa1d11c687ad917b7f73dddf9fc0eccbfef283
     ports:
       - "8089:8089"
     env_file:
