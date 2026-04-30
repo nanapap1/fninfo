@@ -3,12 +3,9 @@ package org.fninfo.epicapi.service;
 
 import jakarta.annotation.PostConstruct;
 import org.fninfo.common.dto.ChangeStatusEvent;
-import org.fninfo.epicapi.dto.Authenficator;
 import org.fninfo.epicapi.dto.Status;
 import org.fninfo.epicapi.runnable.CheckServerStatus;
-import org.fninfo.epicapi.runnable.UpdateClientToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;

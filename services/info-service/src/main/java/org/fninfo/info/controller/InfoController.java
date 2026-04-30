@@ -1,9 +1,7 @@
 package org.fninfo.info.controller;
 
 
-import org.apache.http.HttpException;
 import org.fninfo.info.dto.InfoRequest;
-import org.fninfo.info.entity.Info;
 import org.fninfo.info.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
