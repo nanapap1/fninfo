@@ -41,7 +41,7 @@ jobs:
   Build:
     runs-on: ubuntu-22.04
     needs: Testing
-    if: github.event.branch == main
+    if: github.ref == 'refs/heads/cd'
     permissions:
       packages: write
       contents: read
