@@ -9,7 +9,7 @@ WORKDIR /build/services/info-service
 RUN mvn dependency:go-offline
 RUN mvn clean package -DskipTests
 
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre-ubi9-minimal
 WORKDIR /app
 COPY --from=builder /build/services/info-service/target/*.jar app.jar
 EXPOSE 8087
