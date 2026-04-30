@@ -34,8 +34,9 @@ public class StatusService {
 
     private void checking(){
         boolean stat = status.isUp();
+        boolean flag = !status.getStatus().equalsIgnoreCase("neutral");
         checkServerStatus.run();
-        if(stat != status.isUp()) {
+        if(stat != status.isUp() && flag) {
             streamBridge.send("statusChange-out-0", new ChangeStatusEvent(status.isUp()));
         }
     }
