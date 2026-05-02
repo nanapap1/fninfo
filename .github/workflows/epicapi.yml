@@ -1,10 +1,5 @@
 name: epicapi.yml
 on:
-  push:
-    branches:
-      - cd
-    paths:
-      - 'services/epicapi-service/**'
   pull_request:
     branches:
       - main
@@ -41,7 +36,7 @@ jobs:
   Build:
     runs-on: ubuntu-22.04
     needs: Testing
-    if: github.ref == 'refs/heads/cd'
+    if: github.ref == 'refs/heads/main'
     permissions:
       packages: write
       contents: read
