@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface InfoRepository extends JpaRepository<Info,Integer> {
 
     Info findByNameEventAndStatusOf(String name, boolean status);
+
 }
