@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Status {
     @JsonProperty("status")
-    private volatile String isUp = "UP";
+    private volatile String isUp = "neutral";
 
     public Status() {
     }
