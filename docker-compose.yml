@@ -31,24 +31,35 @@ services:
     volumes:
       - ./redis/tg:/data
 
-  epic_api:
-    image: ghcr.io/nanapap1/epicapi-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
+  redis_epicapi:
+    image: redis:8.6.2-alpine
     ports:
-      - "8086:8086"
+      - "6381:6379"
+    command: [ "redis-server","--requirepass","${REDIS_HOST_PASSWORD_EPICAPI}" ]
     env_file:
       - ./.env
+    volumes:
+      - ./redis/epicapi:/data
 
-  info:
-    image: ghcr.io/nanapap1/info-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
-    ports:
-      - "8087:8087"
-    env_file:
-      - ./.env
 
-  tg:
-    image: ghcr.io/nanapap1/tg-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
-    ports:
-      - "8089:8089"
-    env_file:
-      - ./.env
+  #epic_api:
+   # image: ghcr.io/nanapap1/epicapi-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
+   # ports:
+   #   - "8086:8086"
+   # env_file:
+   #   - ./.env
+
+ # info:
+ #   image: ghcr.io/nanapap1/info-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
+ #   ports:
+  #    - "8087:8087"
+  #  env_file:
+   #   - ./.env
+
+#  tg:
+ #   image: ghcr.io/nanapap1/tg-service:sha-edea02e05333de6c6b80fbaca4e747ad05afe266
+  #  ports:
+   #   - "8089:8089"
+    #env_file:
+     # - ./.env
 
