@@ -38,15 +38,19 @@ public class AlertStatus extends TemplateRunner implements Runnable{
                 .header("Authorization", String.format("Bearer %s",authenficator.getAccessToken()))
                 .retrieve()
                 .body(JsonNode.class).path("missionAlerts");
+        boolean send = false;
 
         for (JsonNode check : node) {
             Set<String> alerts = new HashSet<>();
             for (JsonNode jsonNode : check.path("availableMissionAlerts")) {
                 alerts.add(jsonNode.path("missionAlertGuid").textValue());
             }
-            if(alertRepository.compare(check.path("theaterId").textValue(),alerts)) {
+            if(!alertRepository.compare(check.path("theaterId").textValue(),alerts)) {
                 alertRepository.addAlerts(check.path("theaterId").textValue(),alerts);
-                streamBridge.send("alertsChange-out-0",true);
+                if(!send) {
+                    streamBridge.send("alertsChange-out-0", true);
+                    send = true;
+                }
             }
         }
     }
