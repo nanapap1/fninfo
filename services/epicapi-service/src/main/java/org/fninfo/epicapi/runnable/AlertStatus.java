@@ -45,12 +45,13 @@ public class AlertStatus extends TemplateRunner implements Runnable{
             for (JsonNode jsonNode : check.path("availableMissionAlerts")) {
                 alerts.add(jsonNode.path("missionAlertGuid").textValue());
             }
-            if(!alertRepository.compare(check.path("theaterId").textValue(),alerts)) {
+            if(!send && !alertRepository.compare(check.path("theaterId").textValue(),alerts)) {
                 alertRepository.addAlerts(check.path("theaterId").textValue(),alerts);
-                if(!send) {
-                    streamBridge.send("alertsChange-out-0", true);
-                    send = true;
-                }
+                streamBridge.send("alertsChange-out-0", true);
+                send = true;
+            }
+            if(send) {
+                alertRepository.addAlerts(check.path("theaterId").textValue(),alerts);
             }
         }
     }
